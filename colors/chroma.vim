@@ -151,7 +151,7 @@ let s:theme = [
 \ ['PreProc',      'NONE',        'orange',      'NONE'],
 \ ['Type',         'NONE',        'lightblue',   'Bold'],
 \ ['Visual',       'visualgray',  'NONE',        'NONE'],
-\ ['NonText',      'bggray',      'NONE',        'NONE'],
+\ ['NonText',      'NONE',      'NONE',        'NONE'],
 \ ['LineNr',       'bggray',      'gray',        'NONE'],
 \
 \ ['Pmenu',        'bggray',      'lightgray',   'NONE'],

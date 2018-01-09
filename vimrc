@@ -6,3 +6,4 @@ set expandtab " convert tab to spaces
 set showmatch " highlight matching brackets and parentheses
 set autoindent " enable auto indent
 set number " show line numbers
+set cursorline " visually highlight current line

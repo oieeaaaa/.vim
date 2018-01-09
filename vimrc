@@ -7,3 +7,7 @@ set showmatch " highlight matching brackets and parentheses
 set autoindent " enable auto indent
 set number " show line numbers
 set cursorline " visually highlight current line
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>

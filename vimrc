@@ -5,8 +5,10 @@ set tabstop=4 softtabstop=4 " number of visual spaces of tab character
 set expandtab " convert tab to spaces
 set showmatch " highlight matching brackets and parentheses
 set autoindent " enable auto indent
-set number " show line numbers
 set cursorline " visually highlight current line
+set relativenumber " show relative line numbers
+set number " show line numbers 
+            " (hybrid line numbers when paired with relativenumber option)
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>

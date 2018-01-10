@@ -13,6 +13,3 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
-call plug#begin('~/.vim/plugged')
-call plug#end()

@@ -9,6 +9,10 @@ set cursorline " visually highlight current line
 set relativenumber " show relative line numbers
 set number " show line numbers 
             " (hybrid line numbers when paired with relativenumber option)
+
+hi Normal guibg=NONE ctermbg=NONE
+hi CursorLine ctermbg=237
+
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>

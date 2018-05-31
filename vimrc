@@ -1,4 +1,6 @@
 colorscheme chroma
+set nocompatible
+filetype plugin on
 syntax enable " enable syntax processing
 set shiftwidth=4 " number of spaces for each indent step
 set tabstop=4 softtabstop=4 " number of visual spaces of tab character

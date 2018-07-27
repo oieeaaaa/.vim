@@ -15,6 +15,9 @@ set number " show line numbers
 hi Normal guibg=NONE ctermbg=NONE
 hi CursorLine ctermbg=237
 
+let g:vimwiki_list = [{'path': '~/notes',
+                        \ 'syntax': 'markdown', 'ext': '.md'}]
+
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>

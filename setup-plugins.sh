@@ -7,5 +7,6 @@ cd ~/.vim/pack/plugins/start
 printf "Downloading plugin files from Github\n\n"
 git clone https://github.com/leafgarland/typescript-vim #typscript syntax
 git clone https://github.com/vim-airline/vim-airline #airline status bar
+git clone https://github.com/vimwiki/vimwiki.git #vimwiki
 
 vim -c helptags ALL # setup helptags

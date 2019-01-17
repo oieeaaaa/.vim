@@ -10,4 +10,12 @@ git clone https://github.com/leafgarland/typescript-vim #typscript syntax
 git clone https://github.com/vim-airline/vim-airline #airline status bar
 git clone https://github.com/vimwiki/vimwiki.git #vimwiki
 
-vim -c "helptags $PLUGIN_DIR" # setup helptags
+printf "\nSetting up Help Tags...\n"
+PLUGINS=$(find * -maxdepth 0 -type d -printf '%p,')
+
+vim -u NONE -c "set runtimepath=${PLUGINS::-1}" -c "helptags ALL" -c q # setup helptags
+if [ $? -eq 0 ]; then
+    printf "Setup completed successfully.\n"
+else
+    printf "Setup did not complete successfully.\n"
+fi

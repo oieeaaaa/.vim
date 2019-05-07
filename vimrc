@@ -1,4 +1,4 @@
-colorscheme chroma
+colorscheme molokai
 set nocompatible
 filetype plugin on
 syntax enable " enable syntax processing

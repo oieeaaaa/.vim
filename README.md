@@ -41,6 +41,7 @@ so here's a workaround to get the script working:
   + vim -u NONE -c "set runtimepath=${PLUGINS::${#PLUGINS}-1}" -c "helptags ALL" -c q # setup helptags
   ```
 
+## Adding plugins
 
 To install additional plugins, place the plugin's directory inside
 

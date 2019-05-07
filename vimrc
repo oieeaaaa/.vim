@@ -15,6 +15,7 @@ set number " show line numbers
 hi Normal guibg=NONE ctermbg=NONE
 hi CursorLine ctermbg=237
 
+let g:airline_powerline_fonts = 1
 let g:vimwiki_list = [{'path': '~/notes',
                         \ 'syntax': 'markdown', 'ext': '.md'}]
 

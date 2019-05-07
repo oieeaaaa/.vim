@@ -24,17 +24,12 @@ $ ./setup-plugins.sh
 
 ## Note on OSX
 
-The setup script for helptags fail on OSX because it has different binaries than of GNU ~~and that OSX bash is weird and stupid~~
-so here's a workaround to get the script working:
+The setup script for helptags fail on OSX because it has different binaries than of GNU ~~and that OSX bash is weird and stupid~~.
 
-1. Install `findutils` which contains `gfind` 
-  ```
-  brew install findutils
-  ```
-2. Edit the following lines:
+Edit the following lines to get the script working:
   ```diff
   - PLUGINS=$(find * -maxdepth 0 -type d -printf '%p,')
-  + PLUGINS=$(gfind * -maxdepth 0 -type d -printf '%p,')
+  + PLUGINS=$(find * -maxdepth 0 -type d -print0 | xargs -0 printf '%s,')
   ```
   ```diff
   - vim -u NONE -c "set runtimepath=${PLUGINS::-1}" -c "helptags ALL" -c q # setup helptags

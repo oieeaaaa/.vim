@@ -11,6 +11,8 @@ https://github.com/vim-airline/vim-airline #airline status bar
 https://github.com/vimwiki/vimwiki.git #vimwiki
 https://github.com/pangloss/vim-javascript.git #js syntax highlighting
 https://github.com/mxw/vim-jsx.git #jsx support
+https://github.com/kien/ctrlp.vim.git #quick navigation
+https://github.com/dense-analysis/ale.git #js linter
 )
 
 PATTERN="s/https:\/\/[\.w]*github\.com\/.+\/([[:alnum:]-]+)(\.git)?/\1/"

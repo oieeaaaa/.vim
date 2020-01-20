@@ -11,6 +11,10 @@ https://github.com/vim-airline/vim-airline #airline status bar
 https://github.com/vimwiki/vimwiki.git #vimwiki
 https://github.com/pangloss/vim-javascript.git #js syntax highlighting
 https://github.com/mxw/vim-jsx.git #jsx support
+https://github.com/kien/ctrlp.vim #quick navigation
+https://github.com/dense-analysis/ale.git #linter
+https://github.com/lumiliet/vim-twig #twig syntax
+https://github.com/editorconfig/editorconfig-vim.git #editor config support
 )
 
 PATTERN="s/https:\/\/[\.w]*github\.com\/.+\/([[:alnum:]-]+)(\.git)?/\1/"
@@ -22,8 +26,8 @@ for i in ${!REPOS[@]}; do
 done
 
 printf "Setting up Help Tags...\n"
-PLUGINS=$(find * -maxdepth 0 -type d -printf '%p,')
-vim -u NONE -c "set runtimepath=${PLUGINS::-1}" -c "helptags ALL" -c q # setup helptags
+PLUGINS=$(find * -maxdepth 0 -type d -print0 | xargs -0 printf '%s,')
+vim -u NONE -c "set runtimepath=${PLUGINS::${#PLUGINS}-1}" -c "helptags ALL" -c q # setup helptags
 
 printf "\n"
 if [ $? -eq 0 ]; then

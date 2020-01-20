@@ -1,3 +1,6 @@
+" ====================== 
+" GLOBALS 
+" ======================
 colorscheme molokai
 set nocompatible
 filetype plugin on
@@ -12,12 +15,40 @@ set relativenumber " show relative line numbers
 set number " show line numbers 
             " (hybrid line numbers when paired with relativenumber option)
 
-hi Normal guibg=NONE ctermbg=NONE
-hi CursorLine ctermbg=237
-
+" ====================== 
+" DEFAULT 
+" ======================
 let g:airline_powerline_fonts = 1
-let g:vimwiki_list = [{'path': '~/notes',
-                        \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/notes', 'syntax': 'markdown', 'ext': '.md'}]
+
+set nrformats= "Treat all numerals as decimal
+
+hi CursorLine ctermbg=237
+hi Normal guibg=NONE ctermbg=NONE
+
+
+
+" ====================== 
+" NAVIGATION
+" ======================
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags-exuberant' " re-sourcing ctags to ctags-exuberant path
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+
+" ====================== 
+" DISPLAY 
+" ======================
+let g:netrw_liststyle= 3 " default to tree stucture
+
+set colorcolumn=80 " set a line guide to limit 80 characters per line
+
+hi ColorColumn ctermbg=0
+
+" ====================== 
+" LINTER 
+" ======================
+let b:ale_fixers = ['prettier', 'eslint', 'stylelint']
+
+
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>

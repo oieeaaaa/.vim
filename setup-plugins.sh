@@ -6,7 +6,6 @@ cd $PLUGIN_DIR
 
 # download plugins
 REPOS=(
-https://github.com/leafgarland/typescript-vim #typscript syntax
 https://github.com/vim-airline/vim-airline #airline status bar
 https://github.com/vimwiki/vimwiki.git #vimwiki
 https://github.com/pangloss/vim-javascript.git #js syntax highlighting
@@ -15,6 +14,7 @@ https://github.com/kien/ctrlp.vim #quick navigation
 https://github.com/dense-analysis/ale.git #linter
 https://github.com/lumiliet/vim-twig #twig syntax
 https://github.com/editorconfig/editorconfig-vim.git #editor config support
+https://github.com/kien/ctrlp.vim.git #quick navigation
 )
 
 PATTERN="s/https:\/\/[\.w]*github\.com\/.+\/([[:alnum:]-]+)(\.git)?/\1/"

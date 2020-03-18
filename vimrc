@@ -15,11 +15,11 @@ set relativenumber " show relative line numbers
 set number " show line numbers (hybrid line numbers when paired with relativenumber option)
 set foldmethod=marker foldmarker={,} foldlevel=10 nofoldenable 
 set colorcolumn=100 " set character limit per line
+set backspace=indent,eol,start
 
 " ====================== 
 " DEFAULT 
 " ======================
-let g:airline_powerline_fonts = 1
 let g:vimwiki_list = [{'path': '~/notes', 'syntax': 'markdown', 'ext': '.md'}]
 
 set nrformats= "Treat all numerals as decimal
@@ -47,6 +47,8 @@ hi ColorColumn ctermbg=0
 " LINTER 
 " ======================
 let b:ale_fixers = ['prettier', 'eslint', 'stylelint']
+let g:ale_fix_on_save = 1
+
 
 
 " PLUGIN CONFIGS
@@ -55,6 +57,7 @@ let b:ale_fixers = ['prettier', 'eslint', 'stylelint']
 " ctrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_show_hidden = 1
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>

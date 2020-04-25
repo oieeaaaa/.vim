@@ -1,10 +1,25 @@
 " ====================== 
+" PLUGINS 
+" ======================
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'morhetz/gruvbox'
+Plug 'sheerun/vim-polyglot'
+Plug 'dense-analysis/ale'
+Plug 'editorconfig/editorconfig-vim'
+
+" Initialize plugin system
+call plug#end()
+
+" ====================== 
 " GLOBALS 
 " ======================
-colorscheme molokai
+colorscheme gruvbox
+set background=dark    " Setting dark mode
 set nocompatible
 filetype plugin on
-syntax enable " enable syntax processing
+syntax on " enable syntax processing
 set shiftwidth=2 " number of spaces for each indent step
 set tabstop=2 softtabstop=2 " number of visual spaces of tab character
 set expandtab " convert tab to spaces
@@ -16,52 +31,44 @@ set number " show line numbers (hybrid line numbers when paired with relativenum
 set foldmethod=marker foldmarker={,} foldlevel=10 nofoldenable 
 set colorcolumn=100 " set character limit per line
 set backspace=indent,eol,start
-
-" ====================== 
-" DEFAULT 
-" ======================
-let g:vimwiki_list = [{'path': '~/notes', 'syntax': 'markdown', 'ext': '.md'}]
-
+set splitright
+set splitbelow
 set nrformats= "Treat all numerals as decimal
 
 hi CursorLine ctermbg=237
 hi Normal guibg=NONE ctermbg=NONE
 
-
 " ====================== 
 " NAVIGATION
 " ======================
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags-exuberant' " re-sourcing ctags to ctags-exuberant path
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+set path+=** " Search down into subfolders
+set wildignore+=**/node_modules/** " Ignored files
 
 " ====================== 
 " DISPLAY 
 " ======================
-let g:netrw_liststyle= 3 " default to tree stucture
-
+set wildmenu " Display all matching files on tab complete
 set colorcolumn=80 " set a line guide to limit 80 characters per line
-
 hi ColorColumn ctermbg=0
 
+let g:netrw_liststyle= 3 " default to tree stucture
+
 " ====================== 
-" LINTER 
+" KEY REMAPPING 
 " ======================
-let b:ale_fixers = ['prettier', 'eslint', 'stylelint']
-let g:ale_fix_on_save = 1
-
-
-
-" PLUGIN CONFIGS
-" =============
-
-" ctrlP
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:ctrlp_show_hidden = 1
-
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
 nmap <Space> za
+
+" ====================== 
+" LINTERS
+" ======================
+let b:ale_fixers = ['prettier', 'eslint', 'stylelint']
+let g:ale_fix_on_save = 1
+
+" ====================== 
+" SNIPPETS
+" ======================
+nnoremap ,html :-1read ./templates/skeleton.html<CR>2jwf>a

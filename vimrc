@@ -8,6 +8,7 @@ Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'preservim/nerdcommenter'
 
 " Initialize plugin system
 call plug#end()
@@ -34,6 +35,8 @@ set backspace=indent,eol,start
 set splitright
 set splitbelow
 set nrformats= "Treat all numerals as decimal
+set noro " Default to not read-only in vimdiff
+set paste
 
 hi CursorLine ctermbg=237
 hi Normal guibg=NONE ctermbg=NONE
@@ -66,9 +69,10 @@ nmap <Space> za
 " LINTERS
 " ======================
 let b:ale_fixers = ['prettier', 'eslint', 'stylelint']
+let b:ale_linters = ['prettier', 'eslint', 'stylelint', 'standard']
 let g:ale_fix_on_save = 1
 
 " ====================== 
 " SNIPPETS
 " ======================
-nnoremap ,html :-1read ./templates/skeleton.html<CR>2jwf>a
+nnoremap ,html :-1read ${HOME}/.vim/templates/skeleton.html<CR>2jwf>a

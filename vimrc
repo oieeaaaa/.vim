@@ -38,6 +38,7 @@ set nrformats= "Treat all numerals as decimal
 set noro " Default to not read-only in vimdiff
 set paste
 set diffopt+=iwhite " avoid whitespace comparison when diffing files
+set redrawtime=5000
 
 " ====================== 
 " PASTING
@@ -90,6 +91,8 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 nmap <Space> za
+nmap <c-w>== :set ead=hor ea noea<CR>
+nmap <c-w>=- :set ead=ver ea noea<CR>
 
 " ====================== 
 " LINTERS

@@ -93,6 +93,8 @@ noremap <Right> <NOP>
 nmap <Space> za
 nmap <c-w>== :set ead=hor ea noea<CR>
 nmap <c-w>=- :set ead=ver ea noea<CR>
+nmap <c-k> :edit .<CR>
+nmap <c-a>d :ALEGoToDefinition -vsplit<CR>
 
 " ====================== 
 " LINTERS

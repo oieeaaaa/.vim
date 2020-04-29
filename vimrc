@@ -107,3 +107,4 @@ let g:ale_fix_on_save = 1
 " SNIPPETS
 " ======================
 nnoremap ,html :-1read ${HOME}/.vim/templates/skeleton.html<CR>2jwf>a
+nnoremap ,react :-1read ${HOME}/.vim/templates/skeleton-react.js<CR>3jf"li

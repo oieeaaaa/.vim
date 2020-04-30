@@ -37,7 +37,6 @@ set splitright
 set splitbelow
 set nrformats= "Treat all numerals as decimal
 set noro " Default to not read-only in vimdiff
-set paste
 set diffopt+=iwhite " avoid whitespace comparison when diffing files
 set redrawtime=5000
 
@@ -46,28 +45,6 @@ set redrawtime=5000
 " ======================
 hi CursorLine ctermbg=237
 hi Normal guibg=NONE ctermbg=NONE
-
-function! WrapForTmux(s)
-  if !exists('$TMUX')
-    return a:s
-  endif
-
-  let tmux_start = "\<Esc>Ptmux;"
-  let tmux_end = "\<Esc>\\"
-
-  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
-endfunction
-
-let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
-
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 " ====================== 
 " NAVIGATION
@@ -100,9 +77,9 @@ nmap <c-a>d :ALEGoToDefinition -vsplit<CR>
 " ====================== 
 " LINTERS
 " ======================
-let b:ale_fixers = ['prettier', 'eslint', 'stylelint']
-let b:ale_linters = ['prettier', 'eslint', 'stylelint', 'standard']
 let g:ale_fix_on_save = 1
+let b:ale_linters = ['prettier', 'eslint', 'stylelint']
+let b:ale_fixers = {'javascript': ['prettier', 'eslint'], 'css': ['prettier', 'stylelint']}
 
 " ====================== 
 " SNIPPETS

@@ -9,6 +9,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'preservim/nerdcommenter'
+Plug 'mhartington/oceanic-next'
 
 " Initialize plugin system
 call plug#end()
@@ -16,7 +17,7 @@ call plug#end()
 " ====================== 
 " GLOBALS 
 " ======================
-colorscheme gruvbox
+colorscheme OceanicNext
 set background=dark    " Setting dark mode
 set nocompatible
 filetype plugin on

@@ -73,6 +73,7 @@ nmap <c-w>== :set ead=hor ea noea<CR>
 nmap <c-w>=- :set ead=ver ea noea<CR>
 nmap <c-k> :edit .<CR>
 nmap <c-a>d :ALEGoToDefinition -vsplit<CR>
+nmap <c-a>f :ALEFindReferences -vsplit<CR>
 
 " ====================== 
 " LINTERS

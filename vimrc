@@ -79,7 +79,10 @@ nmap <c-a>f :ALEFindReferences -vsplit<CR>
 " ======================
 let g:ale_fix_on_save = 1
 let b:ale_linters = ['prettier', 'eslint', 'stylelint']
-let b:ale_fixers = ['prettier', 'eslint', 'stylelint']
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\   'css': ['prettier', 'stylelint'],
+\}
 
 " ====================== 
 " SNIPPETS

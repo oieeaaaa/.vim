@@ -38,12 +38,7 @@ set nrformats= "Treat all numerals as decimal
 set noro " Default to not read-only in vimdiff
 set diffopt+=iwhite " avoid whitespace comparison when diffing files
 set redrawtime=5000
-
-" ====================== 
-" PASTING
-" ======================
-hi CursorLine ctermbg=237
-hi Normal guibg=NONE ctermbg=NONE
+set hlsearch
 
 " ====================== 
 " NAVIGATION
@@ -57,6 +52,8 @@ set wildignore+=**/node_modules/** " Ignored files
 set wildmenu " Display all matching files on tab complete
 set colorcolumn=80 " set a line guide to limit 80 characters per line
 hi ColorColumn ctermbg=0
+hi CursorLine ctermbg=237
+hi Normal guibg=NONE ctermbg=NONE
 
 let g:netrw_liststyle= 3 " default to tree stucture
 
@@ -73,6 +70,7 @@ nmap <c-w>=- :set ead=ver ea noea<CR>
 nmap <c-k> :edit .<CR>
 nmap <c-a>d :ALEGoToDefinition -vsplit<CR>
 nmap <c-a>f :ALEFindReferences -vsplit<CR>
+nnoremap <CR> :noh<CR><CR>
 
 " ====================== 
 " LINTERS

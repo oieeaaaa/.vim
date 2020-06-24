@@ -54,8 +54,8 @@ set wildignore+=**/node_modules/** " Ignored files
 " ======================
 set wildmenu " Display all matching files on tab complete
 set colorcolumn=80 " set a line guide to limit 80 characters per line
-hi ColorColumn ctermbg=0
-hi CursorLine ctermbg=237
+hi CursorLine ctermbg=235
+hi ColorColumn ctermbg=235
 hi Normal guibg=NONE ctermbg=NONE
 
 let g:netrw_liststyle= 3 " default to tree stucture

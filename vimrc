@@ -4,20 +4,22 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'preservim/nerdcommenter'
-Plug 'mhartington/oceanic-next'
+Plug 'vim-airline/vim-airline'
+Plug 'tomasiser/vim-code-dark'
 
 " Initialize plugin system
 call plug#end()
-
 " ====================== 
 " GLOBALS 
 " ======================
-colorscheme OceanicNext
+"let g:gruvbox_italic=1
+let g:airline_theme = 'codedark'
+colorscheme codedark
 set nocompatible
 filetype plugin on
 syntax on " enable syntax processing
@@ -39,6 +41,7 @@ set noro " Default to not read-only in vimdiff
 set diffopt+=iwhite " avoid whitespace comparison when diffing files
 set redrawtime=5000
 set hlsearch
+set laststatus=2
 
 " ====================== 
 " NAVIGATION
@@ -60,6 +63,7 @@ let g:netrw_liststyle= 3 " default to tree stucture
 " ====================== 
 " KEY REMAPPING 
 " ======================
+set pastetoggle=<c-s-p>
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
@@ -68,8 +72,9 @@ nmap <Space> za
 nmap <c-w>== :set ead=hor ea noea<CR>
 nmap <c-w>=- :set ead=ver ea noea<CR>
 nmap <c-k> :edit .<CR>
-nmap <c-a>d :ALEGoToDefinition -vsplit<CR>
-nmap <c-a>f :ALEFindReferences -vsplit<CR>
+nmap <c-a>d :ALEGoToDefinition<CR>
+nmap <c-a>v :ALEGoToDefinition -vsplit<CR>
+nmap <c-a>f :ALEFindReferences<CR>
 nnoremap <CR> :noh<CR><CR>
 
 " ====================== 
@@ -79,11 +84,11 @@ let g:ale_fix_on_save = 1
 let b:ale_linters = ['prettier', 'eslint', 'stylelint']
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
-\   'css': ['prettier', 'stylelint'],
+\   'css': ['stylelint', 'prettier', 'eslint'],
 \}
 
 " ====================== 
 " SNIPPETS
 " ======================
-nnoremap ,html :-1read ${HOME}/.vim/templates/skeleton.html<CR>2jwf>a
+nnoremap ,html :-1read ${HOME}/.vim/templates/skeleton.html<CR>3jcit
 nnoremap ,react :-1read ${HOME}/.vim/templates/skeleton-react.js<CR>3jf"li

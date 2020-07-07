@@ -11,14 +11,20 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'tomasiser/vim-code-dark'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
 
 " Initialize plugin system
 call plug#end()
+
 " ====================== 
 " GLOBALS 
 " ======================
 "let g:gruvbox_italic=1
 let g:airline_theme = 'codedark'
+set t_Co=256
+set t_ut=
 colorscheme codedark
 set nocompatible
 filetype plugin on
@@ -86,6 +92,7 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'css': ['stylelint', 'prettier', 'eslint'],
 \}
+let g:lsc_auto_map = v:true
 
 " ====================== 
 " SNIPPETS

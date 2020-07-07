@@ -69,7 +69,7 @@ let g:netrw_liststyle= 3 " default to tree stucture
 " ====================== 
 " KEY REMAPPING 
 " ======================
-set pastetoggle=<c-s-p>
+set pastetoggle=<F10>
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>

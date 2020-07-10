@@ -14,6 +14,11 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
+Plug 'thosakwe/vim-flutter'
+Plug 'heavenshell/vim-jsdoc', { 
+\ 'for': ['javascript', 'javascript.jsx','typescript'], 
+\ 'do': 'make install'
+\}
 
 " Initialize plugin system
 call plug#end()
@@ -63,6 +68,7 @@ set colorcolumn=80 " set a line guide to limit 80 characters per line
 hi CursorLine ctermbg=235
 hi ColorColumn ctermbg=235
 hi Normal guibg=NONE ctermbg=NONE
+set completeopt-=preview " disable autocomplete preview
 
 let g:netrw_liststyle= 3 " default to tree stucture
 
@@ -82,6 +88,11 @@ nmap <c-a>d :ALEGoToDefinition<CR>
 nmap <c-a>v :ALEGoToDefinition -vsplit<CR>
 nmap <c-a>f :ALEFindReferences<CR>
 nnoremap <CR> :noh<CR><CR>
+nnoremap <c-t> :tab split<CR>
+nnoremap <c-w> :tabc<CR>
+nmap <silent> <C-l> <Plug>(jsdoc)
+nmap <to> :tab split<CR>
+nmap <tc> :tabc<CR>
 
 " ====================== 
 " LINTERS
@@ -92,7 +103,11 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'css': ['stylelint', 'prettier', 'eslint'],
 \}
+let g:lsc_server_commands = {'dart': 'dart_language_server'}
 let g:lsc_auto_map = v:true
+let g:lsc_enable_autocomplete = v:true
+let g:dart_style_guide = 2
+let g:flutter_hot_reload_on_save = 1
 
 " ====================== 
 " SNIPPETS

@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
 " Main plugins
 Plug 'dense-analysis/ale'
 Plug 'preservim/nerdcommenter'
-Plug 'tomasiser/vim-code-dark'
+Plug 'gruvbox-community/gruvbox'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -16,6 +16,19 @@ Plug 'natebosch/vim-lsc-dart'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
+
+" Theme stuff here
+set t_Co=256
+set t_ut=
+let g:gruvbox_contrast_dark = 'hard'
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+let g:gruvbox_invert_selection='0'
+
+colorscheme gruvbox
+set background=dark
 
 " ====================== 
 " GLOBALS 
@@ -47,9 +60,6 @@ let g:netrw_localrmdir='rm -r' " Removed non-empty directory
 " ====================== 
 " DISPLAY 
 " ======================
-set t_Co=256
-set t_ut=
-colorscheme codedark
 set hidden
 set enc=utf-8
 set cursorline " visually highlight current line
@@ -75,12 +85,10 @@ nmap <Space> za
 nmap <c-w>== :set ead=hor ea noea<CR>
 nmap <c-w>=- :set ead=ver ea noea<CR>
 nmap <c-k> :edit .<CR>
-nmap <c-a>d :ALEGoToDefinition<CR>
-nmap <c-a>v :ALEGoToDefinition -vsplit<CR>
-nmap <c-a>f :ALEFindReferences<CR>
 nnoremap <c-t> :tab split<CR>
 nmap <silent> <C-l> <Plug>(jsdoc)
 nmap <to> :tab split<CR>
+nmap <c-p> :find 
 
 " ====================== 
 " PLUGINS SPECIFIC CONFIGS
@@ -93,10 +101,17 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'css': ['stylelint', 'prettier', 'eslint'],
 \}
+"nmap <c-a>d :ALEGoToDefinition<CR>
+"nmap <c-a>v :ALEGoToDefinition -vsplit<CR>
+"nmap <c-a>f :ALEFindReferences<CR>
+
+" COC
+nmap <leader>rr <Plug>(coc-rename)
+nmap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 " DART/FLUTTER
-let g:lsc_auto_map = v:true
-let g:dart_format_on_save = 1
+let g:lsc_auto_map = {'defaults': v:true, 'PreviousReference': ''}
+" let g:dart_format_on_save = 1
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)

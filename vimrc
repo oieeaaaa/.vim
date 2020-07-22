@@ -15,6 +15,8 @@ Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'jwalton512/vim-blade'
+Plug 'cakebaker/scss-syntax.vim'
 call plug#end()
 
 " Theme stuff here
@@ -108,9 +110,15 @@ let g:ale_fixers = {
 " COC
 nmap <leader>rr <Plug>(coc-rename)
 nmap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>s :CocSearch 
+nmap <leader>c :CocCommand<CR>
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " DART/FLUTTER
-let g:lsc_auto_map = {'defaults': v:true, 'PreviousReference': ''}
+let g:lsc_auto_map = {'defaults': v:true, 'PreviousReference': '', 'NextReference': ''}
 " let g:dart_format_on_save = 1
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

@@ -1,6 +1,11 @@
 {
   "coc.preferences.diagnostic.displayByAle": true,
   "coc.preferences.formatOnSaveFiletypes": [
-    "dart"
-  ]
+    "dart",
+    "html",
+    "javascript",
+    "scss",
+    "css"
+  ],
+  "flutter.lsp.initialization.closingLabels": true
 }

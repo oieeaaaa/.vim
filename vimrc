@@ -88,7 +88,6 @@ nmap <c-w>== :set ead=hor ea noea<CR>
 nmap <c-w>=- :set ead=ver ea noea<CR>
 nmap <c-k> :edit .<CR>
 nnoremap <c-t> :tab split<CR>
-nmap <silent> <C-l> <Plug>(jsdoc)
 nmap <to> :tab split<CR>
 nmap <c-p> :find 
 

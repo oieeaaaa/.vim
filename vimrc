@@ -7,7 +7,9 @@ Plug 'dense-analysis/ale'
 Plug 'preservim/nerdcommenter'
 Plug 'gruvbox-community/gruvbox'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-fugitive'
 
 " Some specific syntax plugins
 Plug 'dart-lang/dart-vim-plugin'
@@ -126,6 +128,10 @@ nmap <silent> gr <Plug>(coc-references)
 
 " JS
 let g:vim_jsx_pretty_highlight_close_tag = 1
+
+" AIRLINE
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 1
 
 " ====================== 
 " SNIPPETS

@@ -85,6 +85,7 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+noremap <space> <NOP>
 nmap <Space> za
 nmap <c-w>== :set ead=hor ea noea<CR>
 nmap <c-w>=- :set ead=ver ea noea<CR>
@@ -92,6 +93,7 @@ nmap <c-k> :edit .<CR>
 nnoremap <c-t> :tab split<CR>
 nmap <to> :tab split<CR>
 nmap <c-p> :find 
+let mapleader = " "
 
 " ====================== 
 " PLUGINS SPECIFIC CONFIGS
@@ -132,6 +134,11 @@ let g:vim_jsx_pretty_highlight_close_tag = 1
 " AIRLINE
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
+
+" FUGITIVE
+nmap <leader>gs :G<CR>
+nmap <leader>gf :diffget \\2<CR>
+nmap <leader>gh :diffget \\3<CR>
 
 " ====================== 
 " SNIPPETS

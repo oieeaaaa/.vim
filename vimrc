@@ -40,6 +40,12 @@ set background=dark
 set nocompatible
 filetype indent plugin on
 syntax on " enable syntax processing
+set nobackup
+set noswapfile " prevent vim from making .swp files
+set undodir=~/.vim/undodir
+set undofile
+set noerrorbells
+set incsearch 
 set shiftwidth=2 " number of spaces for each indent step
 set tabstop=2 softtabstop=2 " number of visual spaces of tab character
 set expandtab " convert tab to spaces
@@ -75,11 +81,14 @@ hi CursorLine ctermbg=235
 hi ColorColumn ctermbg=235
 hi Normal guibg=NONE ctermbg=NONE
 let g:netrw_liststyle = 3 " default to tree stucture
+let g:netrw_banner = 0 " remove help banner
+let g:netrw_winsize = 25 " set window size to 25%
 let g:flutter_show_log_on_run = 0 " Disable flutter logging on seperate window
 
 " ====================== 
 " KEY REMAPPING 
 " ======================
+let mapleader = " "
 set pastetoggle=<F10>
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -93,7 +102,7 @@ nmap <c-k> :edit .<CR>
 nnoremap <c-t> :tab split<CR>
 nmap <to> :tab split<CR>
 nmap <c-p> :find 
-let mapleader = " "
+nmap <leader>vs :vs<CR>
 
 " ====================== 
 " PLUGINS SPECIFIC CONFIGS
@@ -136,12 +145,14 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 
 " FUGITIVE
-nmap <leader>gs :G<CR>
+nmap <leader>gs :vert Git<CR>
 nmap <leader>gf :diffget \\2<CR>
 nmap <leader>gh :diffget \\3<CR>
+
+" NERD COMMENTER
 
 " ====================== 
 " SNIPPETS
 " ======================
-nnoremap ,html :-1read ${HOME}/.vim/templates/skeleton.html<CR>3jcit
-nnoremap ,react :-1read ${HOME}/.vim/templates/skeleton-react.js<CR>3jf"li
+nnoremap <leader>html :-1read ${HOME}/.vim/templates/skeleton.html<CR>3jcit
+nnoremap <leader>react :-1read ${HOME}/.vim/templates/skeleton-react.js<CR>3jf"li

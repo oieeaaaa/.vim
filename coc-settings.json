@@ -1,5 +1,4 @@
 {
-  "coc.preferences.diagnostic.displayByAle": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "dart",
     "html",
@@ -7,5 +6,6 @@
     "scss",
     "css"
   ],
-  "flutter.lsp.initialization.closingLabels": true
+  "flutter.lsp.initialization.closingLabels": true,
+  "eslint.autoFixOnSave": true
 }

@@ -3,21 +3,20 @@
 " ======================
 call plug#begin('~/.vim/plugged')
 
-" Main plugins
 Plug 'preservim/nerdcommenter'
 Plug 'gruvbox-community/gruvbox'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
-
-" Some specific syntax plugins
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jwalton512/vim-blade'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -66,13 +65,6 @@ set backspace=indent,eol,start " to make backspacing work
 set laststatus=2
 
 " ====================== 
-" NAVIGATION
-" ======================
-set path+=** " Search down into subfolders
-set wildignore+=**/node_modules/** " Ignored files
-let g:netrw_localrmdir='rm -r' " Removed non-empty directory
-
-" ====================== 
 " DISPLAY 
 " ======================
 set hidden
@@ -96,28 +88,21 @@ let g:flutter_show_log_on_run = 0 " Disable flutter logging on seperate window
 " ======================
 let mapleader = " "
 set pastetoggle=<F10>
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-noremap <space> <NOP>
-nmap <Space> za
 nmap <c-w>== :set ead=hor ea noea<CR>
 nmap <c-w>=- :set ead=ver ea noea<CR>
-nmap <c-k> :edit .<CR>
-nnoremap <c-t> :tab split<CR>
-nmap <to> :tab split<CR>
-nmap <c-p> :find 
-nmap <leader>vs :vs<CR>
+nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <leader>ts :set hlsearch!<CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
 
 " ====================== 
 " PLUGINS SPECIFIC CONFIGS
 " ======================
-
 " COC
-nmap <leader>s :CocSearch 
+nmap <leader>s :CocSearch<Space>
 nmap <leader>c :CocCommand<CR>
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>rr <Plug>(coc-rename)
@@ -128,7 +113,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " DART/FLUTTER
 let g:lsc_auto_map = {'defaults': v:true, 'PreviousReference': '', 'NextReference': ''}
 let g:dart_style_guide = 2
-" let g:dart_format_on_save = 1
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)

@@ -79,17 +79,12 @@ hi ColorColumn ctermbg=235
 hi Normal guibg=NONE ctermbg=NONE
 let g:netrw_liststyle = 3 " default to tree stucture
 let g:netrw_banner = 0 " remove help banner
-let g:netrw_winsize = 25 " set window size to 25%
-let g:netrw_browse_split = 2
-let g:flutter_show_log_on_run = 0 " Disable flutter logging on seperate window
 
 " ====================== 
 " KEY REMAPPING 
 " ======================
 let mapleader = " "
 set pastetoggle=<F10>
-nmap <c-w>== :set ead=hor ea noea<CR>
-nmap <c-w>=- :set ead=ver ea noea<CR>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <leader>ts :set hlsearch!<CR>
@@ -102,10 +97,12 @@ nnoremap <leader>l :wincmd l<CR>
 " PLUGINS SPECIFIC CONFIGS
 " ======================
 " COC
-nmap <leader>s :CocSearch<Space>
-nmap <leader>c :CocCommand<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>rr <Plug>(coc-rename)
+nmap <leader>s :CocSearch<Space>
+nmap <leader>c :CocCommand<CR>
 nmap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -113,10 +110,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " DART/FLUTTER
 let g:lsc_auto_map = {'defaults': v:true, 'PreviousReference': '', 'NextReference': ''}
 let g:dart_style_guide = 2
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+let g:flutter_show_log_on_run = 0 " Disable flutter logging on seperate window
 
 " JS
 let g:vim_jsx_pretty_highlight_close_tag = 1
@@ -126,7 +120,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 
 " FUGITIVE
-nmap <leader>gs :G<CR>
+nmap <leader>gs :G<bar> :only<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gh :diffget //3<CR>
 

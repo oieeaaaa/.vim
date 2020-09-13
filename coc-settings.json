@@ -7,5 +7,7 @@
     "css"
   ],
   "flutter.lsp.initialization.closingLabels": true,
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "stylelint.enable": true,
+  "stylelint.filetypes": ["scss", "sass", "css"]
 }

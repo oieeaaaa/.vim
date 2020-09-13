@@ -15,8 +15,13 @@ Plug 'natebosch/vim-lsc-dart'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jwalton512/vim-blade'
+Plug 'evidens/vim-twig'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'heavenshell/vim-jsdoc', { 
+  \ 'for': ['javascript', 'javascript.jsx','typescript'], 
+  \ 'do': 'make install'
+\}
 
 call plug#end()
 
@@ -78,20 +83,22 @@ hi CursorLine ctermbg=235
 hi ColorColumn ctermbg=235
 hi Normal guibg=NONE ctermbg=NONE
 let g:netrw_liststyle = 3 " default to tree stucture
-let g:netrw_banner = 0 " remove help banner
 
 " ====================== 
 " KEY REMAPPING 
 " ======================
 let mapleader = " "
 set pastetoggle=<F10>
-nnoremap <C-p> :GFiles<CR>
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <C-k> :Ex<CR>
 nnoremap <leader>ts :set hlsearch!<CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+
+" Move to the middle of the current line with respect to its line length
+nnoremap <expr> gM (virtcol('$') / 2) . '<Bar>'
+xnoremap <expr> gM (virtcol('$') / 2) . '<Bar>'
 
 " ====================== 
 " PLUGINS SPECIFIC CONFIGS
@@ -123,6 +130,14 @@ let g:airline#extensions#branch#enabled = 1
 nmap <leader>gs :G<bar> :only<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gh :diffget //3<CR>
+
+" FZF
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>fgi :GFiles<CR>
+nnoremap <leader>fgs :GFiles?<CR>
+
+" JSDOC
+nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
 
 " ====================== 
 " SNIPPETS
